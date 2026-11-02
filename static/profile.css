@@ -1,0 +1,472 @@
+/* =====================================================
+   main.css
+   Things every page of the website will use:
+   colors, text, nav bar, buttons, footer, accessibility
+   ===================================================== */
+
+
+/* ---------- Colors (change them here and they change everywhere) ---------- */
+:root {
+    --blue: #234466;
+    --dark: #0A141E;
+    --cyan: #00FFFF;
+    --light-blue: #4B75FF;
+    --white: #fff;
+    --corner: 10px;
+}
+
+
+/* ---------- Page basics ---------- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;   /* so the nav bar doesn't cover headings we jump to */
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: white;
+    background: linear-gradient(180deg, var(--dark) 0%, var(--blue) 55%, var(--dark) 100%);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3rem;
+    line-height: 1.15;
+    color: var(--cyan);
+}
+
+h2 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.3;
+}
+
+/* little colored line under every h2 */
+h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    margin-top: 16px;
+    background: var(--cyan);
+    border-radius: 2px;
+}
+
+
+/* ---------- Images (the size is locked, no matter the picture) ---------- */
+img {
+    width: 400px;
+    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--corner);
+}
+
+
+/* ---------- Nav bar ---------- */
+/* The header is the part that sticks to the top. It has to be the header
+   and not the nav inside it, because sticky only works inside a tall parent. */
+header {
+    position: static;
+    top: 0;
+    z-index: 10;
+    background: rgba(10, 20, 30, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 32px;
+}
+
+.logo img {
+    display: block;
+    width: 64px;
+    height: 48px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+    margin: 0 auto 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links a {
+    display: block;
+    padding: 10px 16px;
+    border-radius: var(--corner);
+}
+
+.nav-links a:hover {
+    background: rgba(0, 255, 255, 0.15);
+    color: var(--cyan);
+}
+
+/* the page we are on right now */
+.nav-links a[aria-current="page"] {
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+
+/* ---------- Search bar ---------- */
+.search-bar {
+    display: flex;
+}
+
+.search-bar input {
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 1rem;
+    background: white;
+    color: var(--dark);
+    border: none;
+    border-radius: var(--corner) 0 0 var(--corner);
+}
+
+.search-bar button {
+    border-radius: 0 var(--corner) var(--corner) 0;
+}
+
+
+/* ---------- Buttons ---------- */
+button,
+.button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background: var(--cyan);
+    color: var(--dark);
+    border: none;
+    border-radius: var(--corner);
+    cursor: pointer;
+}
+
+button:hover,
+.button:hover {
+    background: white;
+}
+
+
+/* ---------- Footer ---------- */
+footer {
+    padding: 40px 32px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+/* ---------- Accessibility ---------- */
+/* thick cyan outline when using the keyboard */
+:focus-visible {
+    outline: 3px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* hidden on screen but still read by screen readers */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* "skip to content" link, only shows up when you press Tab */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    z-index: 20;
+    padding: 12px 20px;
+    background: var(--cyan);
+    color: var(--dark);
+    font-weight: bold;
+    border-radius: var(--corner);
+}
+
+.skip-link:focus {
+    top: 16px;
+}
+
+/* no animations for people who turned them off on their computer */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+
+/* ---------- Phones and small screens ---------- */
+@media (max-width: 800px) {
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        padding: 12px 16px;
+    }
+
+    .nav-links {
+        order: 3;          /* links drop to their own row */
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
+
+/* Everything above was from the template */
+
+/* side bar */
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    flex: 0 0 400px;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 44px 32px;
+    background: var(--dark);
+    border-right: 3px solid var(--cyan);
+}
+
+.sidebar h2 {
+    margin: 0 0 32px;
+    font-size: 2.6rem;
+    text-align: center;
+}
+
+/* dropdown menus for the cohorts and such */
+
+@media (max-width: 1000px) {
+    .page {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: static;
+        align-self: auto;
+        flex: none;
+        height: auto;
+        border-right: none;
+        border-bottom: 3px solid var(--cyan);
+    }
+}
+
+/* keeps sidebar from taking over the entire page */
+
+.page {
+     display: flex; 
+     
+
+}
+
+/* cohorts with cohort names */
+
+.cohort {
+    margin-bottom: 20px;
+    background: var(--blue);
+    border-radius: var(--corner);
+
+}
+
+/* the clickable dropdown button to open the dropdown */
+
+.cohort summary {
+    padding: 22px 24px;
+    font-size: 1.75rem;
+    font-weight: bold;
+    cursor: pointer ;
+}
+
+.cohort ul {
+    margin: 0;
+    padding: 0 16px 16px;
+    list-style: none;
+}
+
+.cohort a {
+    display: block;
+    padding: 15px 18px;
+    color: var(--white);
+    font-size: 1.4rem;
+    text-decoration: none;
+    border-radius: var(--corner);
+    font-weight: bold;
+}
+
+.cohort a:hover {
+    background-color: var(--dark);
+}
+
+/* Profile stuff ------------------------------------------------------------------------ */
+
+.banner {
+    align-items: center;
+    background-color: #234466;    
+    height: 240px; 
+    border-bottom: 3px solid var(--cyan);
+}
+
+.profile {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+}
+
+.profilehead {
+    position: relative;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+
+/* made to stop the h2 divider from affecting some of the elemtns */
+
+.destroybar::after {
+    display:none;
+}
+
+/* the source for the image is in the HTML */
+
+.pfp {
+    display: block;
+    background-color: var(--dark);
+    width: 230px;
+    height: 230px;
+    margin: -120px auto 0;
+    border: 6px solid var(--cyan);
+    border-radius: 50%;
+    object-fit:cover ;
+}
+
+.profilecohort {
+    font-style: italic;
+    display: block;
+    margin-top: -8px;
+    color: #6788AA;
+    font-size: 1.4rem;
+}
+
+.name {
+    padding-top: 20px;
+    padding-bottom: 8px;
+}
+
+.statement {
+    margin: -20px auto 0;
+    font-size: 1.75rem;
+    padding-bottom: 30px;
+    border-bottom: 3px solid var(--blue);
+}
+
+/* section blocks */
+
+.section {
+    display: block;
+    background-color: var(--dark);
+    padding: 40px 64px;
+    border-top: 2px solid var(--blue);
+    margin-top: -40px;
+    padding-bottom: 50px;
+}
+
+/* bio*/
+
+.bio {
+    background-color: #234466;  
+    padding: 10px;
+    font-size: 1.3rem;
+}
+
+/*interests*/
+
+.interests {
+    list-style: none;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 0;
+    padding-right: 30px;
+}
+
+.interests li {
+    border: 2px solid #00FFFF;
+    background-color: #234466;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 1.4rem;
+
+}
+
+/* projects */
+
+.projectbox {
+    background-color: #234466;
+    padding: 40px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.projectbox h1 {
+    font-size: 2.3rem;
+    margin: 0 0 12px;
+}
+
+.projectinfo {
+    width: 100%;
+}
+
+
+/* buttons for the links */
+
+.links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+
+}
+
+.links, .button {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    border-radius: 0px;
+    justify-content: center;
+    margin: 0;
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cohort Friend Finder</title>
+  <link rel="stylesheet" href="/static/main.css">
+  <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header>
+    <nav class="navbar" aria-label="Main">
+      <a href="index.html" class="logo">
+        <img src="images/example-card.svg" alt="Cohort Friend Finder, go to home page">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="/templates/profile.html">Student Search</a></li>
+        <li><a href="#mission">Mission</a></li>
+      </ul>
+
+      <form class="search-bar" role="search">
+        <label for="student-search" class="visually-hidden">Search students</label>
+        <input type="search" id="student-search" placeholder="Search students">
+        <button type="submit">Search</button>
+      </form>
+
+      <a href="#" class="button">Login</a>
+    </nav>
+  </header>
+
+  <main id="main" class="flex-container">
+    <div class="hero">
+      <h1>Welcome To The New Way Of Finding Your Friends In the Cohort</h1>
+      <a href="#search" class="button">Find a student</a>
+    </div>
+
+    <section class="top-group" aria-labelledby="welcome-title">
+      <h2 id="welcome-title">We understand how hard it is to remember everyones name and how sometimes it can cause akward situations, but those times are gone.</h2>
+      <img src="images/example-card.svg" alt="">
+    </section>
+
+    <section class="middle-group" id="search" aria-labelledby="search-title">
+      <img src="images/example-card.svg" alt="">
+      <h2 id="search-title">We created a way of connecting the students of Blue Sky in one place, start searching for a name or simple click on the image and scroll around seeing new students.</h2>
+    </section>
+
+    <section class="bottom-group" id="mission" aria-labelledby="mission-title">
+      <h2 id="mission-title">Our biggest mission is to connect the cohorts in one single place, where the distance between knowing someone new, is some clicks away. </h2>
+      <img src="images/example-card.svg" alt="">
+    </section>
+  </main>
+
+  <footer>
+    <p>Cohort Friend Finder</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TBSA</title>
+  <link rel="stylesheet" href="/static/profile.css">
+  <link rel="stylesheet" href="/static/main.css">
+  
+  <style>
+  </style>
+</head>
+<body>
+
+<!-- nav bar and search button-->
+
+  <header>
+    <nav class="navbar" aria-label="Main">
+      <a href="index.html" class="logo">
+        <img src="images/example-card.svg" alt="Home">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="#">Student Search</a></li>
+        <li><a href="#">Mission</a></li>
+      </ul>
+
+      <form class="search-bar" role="search">
+        <label for="student-search" class="visually-hidden">Search students</label>
+        <input type="search" id="student-search" placeholder="Search students">
+        <button type="submit">Search</button>
+      </form>
+
+      <a href="#" class="button">Login</a>
+    </nav>
+  </header>
+
+
+  <!--- The important and main part of hte page-->
+
+  <div class="page">
+
+    <!-- sidebar -->
+
+    <!-- if you want to add a name just put it in the list and add a link-->
+    <!-- but I recommend an ID stystem so you dont have to change paages so each account has an ID with info stored-->
+
+    <div class="sidebar">
+      <h2>Cohorts</h2>
+        <details class="cohort" open>
+            <summary>Cohort 4</summary>
+            <ul>
+            <li><a href="#">Bobby Mingus</a></li>
+            </ul>
+        </details>
+
+         <details class="cohort" open>
+            <summary>Cohort 5</summary>
+                <ul>
+                <li><a href="#">Jaylen</a></li>
+                <li><a href="#">Gabriel</a></li>
+                <li><a href="#">Tavion</a></li>
+                <li><a href="#">Junior</a></li>
+                <li><a href="#">James</a></li>
+                </ul>
+        </details>
+    </div>
+
+<!-- Profile page-->
+
+    <main class="profile">
+
+        <!--banner and name-->
+
+        <header class="profilehead">
+            <div class="banner"></div>
+            <img class="pfp" src="images/exampal.png" alt="pfp">
+            <h1 class="name">Grognard</h1>
+            <p class="profilecohort"> Cohort 5 </p>
+            <h2 class="statement destroybar">"I like to play games and draw"</h2>
+        </header>
+    
+        <!-- sections with the profile info -->
+        <section class="section">
+            <h2> Bio</h2>
+            <p class="bio">Hello, I am Grognard and I like to play games and draw.
+            Playing games brings me joy in this world and if I cant play games I will just
+            Have to chew bubblegum. Does anyone read this text? It's so lonely and cold next time you see
+            a lonely placeholder text, please reassure them. It would make me happy.
+            </p>
+        </section>
+
+
+        <!-- this section has chips for interests as opposed to the demo -->
+         <!-- you can add anything and it should fit-->
+          <!--but you should probably add a max character limit to prevent text from going off the page-->
+
+        <section class="section">
+            <h2> Interests</h2>
+            <ul class="interests">
+                <li>Team Oriented Environments</li>
+                <li>Creative Based Assignments</li>
+                <li>Fortnite</li>
+            </ul>
+        </section>
+
+        <!-- Projects-->
+         
+
+          <!-- project 1-->
+ 
+        <section class="section">
+            <h2> Projects </h2>
+            <div class="projectbox">
+              <div class="projectinfo">
+                <h1 class="destroybar">Quantum Vectorization Automation</h1>
+                  <p> In this project I had to calculate vectorization loops and utilize
+                    flux decompositing skills to develop multiversal apex launchers
+                  </p>
+              </div>
+
+                <!-- links to projects-->
+
+                <ul class="links"> 
+                  <li> <a href="#" class="button"> GitHub </a> </li>
+                  <li> <a href="#" class="button"> Youtube </a> </li>
+
+                </ul>
+      
+            </div>
+
+            <!-- project 2-->
+
+
+           <div class="projectbox">
+              <div class="projectinfo">
+                <h1 class="destroybar">Rock Entertainment</h1>
+                  <p> In this project I had to smash worms with rocks but now I dont due to kindness</p>
+              </div>
+
+                <!-- links to projects-->
+
+                <ul class="links"> 
+                  <li> <a href="#" class="button"> Documentary </a> </li>
+
+                </ul>
+      
+            </div>
+
+            <!-- project 3-->
+
+             <div class="projectbox">
+              <div class="projectinfo">
+                <h1 class="destroybar">Blox Fruits Macro</h1>
+                  <p> I learned how to macro in blox fruits using my amazing power.</p>
+              </div>
+
+                <!-- links to projects-->
+
+                <ul class="links"> 
+                  <li> <a href="#" class="button"> GitHub </a> </li>
+                  <li> <a href="#" class="button"> Youtube </a> </li>
+                  <li> <a href="#" class="button"> Roblox Account </a> </li>
+
+
+                </ul>
+      
+            </div>
+
+
+
+
+        </section>
+
+
+
+    </main>
+  </div>
+
+</body>
+</html>

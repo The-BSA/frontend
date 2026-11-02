@@ -1,0 +1,142 @@
+/* =====================================================
+   home.css
+   Things only the sign up page uses:
+   Uses box- image- and boxes
+   ===================================================== */
+
+/* Universal reset for predictable sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* The Main Wrapper Box */
+.auth-container {
+  display: flex;
+  width: 950px;
+  min-height: 550px;
+  background-color: #ffffff;
+  border-radius: var(--corner);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #000000;
+  overflow: hidden; /* Ensures child backgrounds don't clip the corners */
+  margin: 180px auto; /* Centers the whole component on the web page */
+  opacity: 90%;
+}
+
+/* Left Panel (Branding) */
+.auth-left {
+  flex: 1; /* Takes up exactly 50% of the space */
+  background-color: var(--dark);
+  color: #ffffff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  text-align: center;
+}
+
+.logo {
+  margin-bottom: 30px;
+  border-radius: var(--corner);
+}
+
+.auth-left h1 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.mission {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #e0e7ff;
+}
+
+/* Right Panel (Form) */
+.auth-right {
+  flex: 1; /* Takes up the other 50% of the space */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--blue);
+}
+
+.auth-right h2 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: #ffffff;
+}
+
+/* Form layouts */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Spaces out form groups vertically */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.form-group input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: var(--corner);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+/* Simple input focus state */
+.form-group input:focus {
+  border-color: #0606ae;
+}
+
+/* Action Button */
+.submit-btn {
+  background-color: var(--dark);
+  color: var(--cyan);
+  padding: 12px;
+  border: none;
+  border-radius: var(--corner);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s;
+  text-align: center; /* Ensures horizontal centering */
+  display: inline-block; /* Or display: flex; align-items: center; justify-content: center; */
+}
+
+.submit-btn:hover {
+  background-color: #65656a;
+}
+
+.auth-switch {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.auth-switch a {
+  color: var(--cyan);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.auth-switch a:hover {
+  color: #ffffff;
+}

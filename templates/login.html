@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log In Page</title>
+  <link rel="stylesheet" href="/static/main.css">
+  <link rel="stylesheet" href="/static/signup.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header>
+    <nav class="navbar" aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="auth-container">
+        <!-- Left Side: Branding & Info -->
+        <section class="auth-left">
+            <div class="logo"><img src="images/example-card.svg" alt="Cohort Friend Finder, go to homepage"></div>
+            <h1>Finding Your Friends</h1>
+            <p class="mission">We understand how hard it is to remember everyones name and how sometimes it can cause awkward situations, but those times are gone.</p>
+        </section>
+
+        <!-- Right Side: Login Form -->
+        <section class="auth-right">
+            <h2>Welcome Back</h2>
+            <form class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+
+            <p class="auth-switch">Don't have an account? <a href="SignUp.html">Sign Up</a></p>
+        </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>Cohort Friend Finder</p>
+  </footer>
+
+</body>
+</html>

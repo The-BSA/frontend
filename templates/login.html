@@ -8,13 +8,14 @@
   <link rel="stylesheet" href="../static/css/signup.css">
 </head>
 <body>
+  <script src="../static/js/login.js"></script>
 
   <a href="#main" class="skip-link">Skip to main content</a>
 
   <header>
     <nav class="navbar" aria-label="Main">
       <ul class="nav-links">
-        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="/" aria-current="page">Home</a></li>
       </ul>
     </nav>
   </header>
@@ -42,10 +43,10 @@
                     <input type="password" id="password" placeholder="••••••••" required>
                 </div>
 
-                <button type="submit" class="submit-btn">Log In</button>
+                <button type="button" class="submit-btn" onclick="login()">Log In</button>
             </form>
 
-            <p class="auth-switch">Don't have an account? <a href="SignUp.html">Sign Up</a></p>
+            <p class="auth-switch">Don't have an account? <a href="signup">Sign Up</a></p>
         </section>
     </section>
   </main>

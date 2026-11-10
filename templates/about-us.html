@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us | The Blue Student Association</title>
+
+    <!-- Custom stylesheet (same folder as this file). -->
+    <link rel="stylesheet" href="../static/css/about-us.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header>
+    <nav class="navbar" aria-label="Main">
+      <a href="/" class="logo">
+        <img src="images/example-card.svg" alt="Cohort Friend Finder, go to home page">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/" aria-current="page">Home</a></li>
+        <li><a href="/profile">Student Search</a></li>
+        <li><a href="/about-us">About Us</a></li>
+        <li><a href="#mission">Mission</a></li>
+      </ul>
+
+      <form class="search-bar" role="search">
+        <label for="student-search" class="visually-hidden">Search students</label>
+        <input type="search" id="student-search" placeholder="Search students">
+        <button type="submit">Search</button>
+      </form>
+
+      <a href="/login" class="button">Login</a>
+    </nav>
+  </header>
+
+    <main class="page-container">
+
+        <h1>About us and our vision</h1>
+        <p class="intro-text">A place for every Bluesky cohort to meet, connect, and learn from each other.</p>
+
+        <!-- Mission statement -->
+        <section class="mission" aria-labelledby="mission-title">
+            <h2 id="mission-title">Our mission</h2>
+            <p class="mission-statement">
+                To build a small professional network just for Bluesky students, so that
+                no one has to wait until graduation to meet the people in the cohorts around them.
+            </p>
+        </section>
+
+        <!-- Why we built it -->
+        <section class="story" aria-labelledby="story-title">
+            <h2 id="story-title">Why we built this</h2>
+            <p>
+                A new cohort joins the Bluesky program every year. When we arrived, most of us
+                only knew the students in our own cohort. We are in Cohort 5, and the cohorts
+                before and after us felt like strangers, even though we share the same program,
+                the same classes, and many of the same goals.
+            </p>
+            <p>
+                Professional networking sites are built for everyone, which makes it hard to
+                find the people who are right next to you. So we created a mini LinkedIn made
+                only for Bluesky cohorts. Here you can share who you are, see what other
+                students are working on, and reach out to someone you would not have met otherwise.
+            </p>
+        </section>
+
+        <!-- Who we help -->
+        <section aria-labelledby="who-title">
+            <h2 id="who-title" class="section-title">Who this site is for</h2>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>New students</h3>
+                        <p>Find friendly faces early and learn from students who started before you.</p>
+                    </div>
+                </div>
+
+                <div class="card featured-card">
+                    <div class="card-content">
+                        <h3>Current cohorts</h3>
+                        <p>Share your skills and interests, and connect with students across every cohort.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Past students</h3>
+                        <p>Stay in touch with the program and offer advice to the students who follow you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What we value -->
+        <section class="values" aria-labelledby="values-title">
+            <h2 id="values-title" class="section-title">What we stand for</h2>
+            <ul class="values-list">
+                <li><strong>Connection.</strong> Every student should know someone outside their own cohort.</li>
+                <li><strong>Support.</strong> Students help each other with advice, projects, and opportunities.</li>
+                <li><strong>Community.</strong> Each new cohort adds to the network instead of starting over.</li>
+            </ul>
+        </section>
+
+        <!-- Call to action linking to the other group pages -->
+        <section class="cta" aria-labelledby="cta-title">
+            <h2 id="cta-title">Ready to join in?</h2>
+            <p>Set up your profile, then find the students in your program.</p>
+            <div class="cta-buttons">
+                <a class="card-link" href="page1.html">Create your profile</a>
+                <a class="card-link" href="main-page.html">Search cohorts</a>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>

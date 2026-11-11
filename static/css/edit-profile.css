@@ -1,0 +1,148 @@
+/* Profile editor ---------------------------------------------------------------------
+   Reuses profile.css (banner, picture, sections). The only new thing is that the
+   name, picture link, program, year and bios are fields, drawn with a dashed
+   outline so it is clear they can be edited. */
+
+#profile-form {
+    margin: 0;
+}
+
+/* picture link sits right under the picture */
+.edit-avatar-row {
+    max-width: 520px;
+    margin: 20px auto 0;
+    padding: 0 16px;
+}
+
+.edit-avatar-row input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 44px;
+    padding: 0 14px;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--dark);
+    background: white;
+    border: 2px solid transparent;
+    border-radius: var(--corner);
+}
+
+/* the big name, in the same place and size as the real h1 */
+.edit-name {
+    display: block;
+    box-sizing: border-box;
+    width: min(100%, 720px);
+    margin: 12px auto 0;
+    padding: 12px 16px;
+    font: inherit;
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.15;
+    text-align: center;
+    color: var(--cyan);
+    background: transparent;
+    border: 2px dashed rgba(0, 255, 255, 0.35);
+    border-radius: var(--corner);
+}
+
+.edit-meta {
+    margin-top: 12px;
+}
+
+.edit-meta input {
+    box-sizing: border-box;
+    padding: 4px 10px;
+    font: inherit;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: white;
+    background: rgba(255, 255, 255, 0.06);
+    border: 2px dashed rgba(0, 255, 255, 0.35);
+    border-radius: var(--corner);
+}
+
+#program {
+    width: 14em;
+    max-width: 100%;
+}
+
+#graduation-year {
+    width: 6em;
+}
+
+/* bios: .bio from profile.css gives the blue block, this makes it a textarea */
+.edit-bio {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 9rem;
+    font: inherit;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: white;
+    border: 2px dashed rgba(0, 255, 255, 0.35);
+    border-radius: var(--corner);
+    resize: vertical;
+}
+
+.edit-name:hover,
+.edit-meta input:hover,
+.edit-bio:hover {
+    border-color: var(--cyan);
+}
+
+.edit-name::placeholder,
+.edit-meta input::placeholder,
+.edit-bio::placeholder {
+    color: rgba(0, 255, 255, 0.45);
+}
+
+.edit-name:disabled,
+.edit-meta input:disabled,
+.edit-bio:disabled,
+.edit-avatar-row input:disabled,
+#save-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.hint {
+    margin: 16px 0 0;
+    font-size: 0.95rem;
+    color: #9bb7d4;
+}
+
+.counter {
+    margin: 8px 0 0;
+    font-size: 0.9rem;
+    text-align: right;
+    color: #9bb7d4;
+}
+
+.status.error {
+    color: #ffb4b4;
+}
+
+.edit-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin: 40px 64px 0;
+}
+
+.cancel {
+    color: var(--cyan);
+    text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+    .edit-name {
+        font-size: 2.25rem;
+    }
+
+    .edit-actions {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}

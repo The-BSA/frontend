@@ -17,6 +17,9 @@
 
 /* ---------- Page basics ---------- */
 html {
+    /* never shorter than the screen: the gradient on body is sized to the page,
+       so while a page is still loading it would repeat down the screen */
+    min-height: 100vh;
     scroll-behavior: smooth;
     scroll-padding-top: 100px;   /* so the nav bar doesn't cover headings we jump to */
 }
@@ -28,6 +31,8 @@ body {
     line-height: 1.6;
     color: white;
     background: linear-gradient(180deg, var(--dark) 0%, var(--blue) 55%, var(--dark) 100%);
+    background-color: var(--dark);   /* shown instead of a repeat if the page is ever shorter */
+    background-repeat: no-repeat;
 }
 
 a {
@@ -141,6 +146,92 @@ button,
 button:hover,
 .button:hover {
     background: white;
+}
+
+
+/* ---------- Logged-in user menu (picture + dropdown) ---------- */
+/* the header must sit above page content that has its own stacking order,
+   like the profile banner, or the dropdown would slide underneath it */
+.site-header {
+    z-index: 50;
+}
+
+.navbar [hidden] {
+    display: none !important;
+}
+
+.user-menu {
+    position: relative;
+}
+
+.nav-profile-link {
+    display: block;
+    border-radius: 50%;
+}
+
+.nav-avatar {
+    display: block;
+    box-sizing: border-box;
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--cyan);
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--dark);
+}
+
+/* the person's initials when there is no picture */
+.nav-avatar-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1;
+    background: var(--cyan);
+    color: var(--dark);
+}
+
+/* opens on hover, and on keyboard focus so it works without a mouse */
+.user-menu-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 30;
+    min-width: 180px;
+    margin: 0;
+    padding: 6px 0;
+    list-style: none;
+    background: rgba(10, 20, 30, 0.97);
+    border: 1px solid var(--cyan);
+    border-radius: var(--corner);
+}
+
+.user-menu:hover .user-menu-list,
+.user-menu:focus-within .user-menu-list {
+    display: block;
+}
+
+.user-menu-list a,
+.user-menu-list button {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 0;
+    padding: 10px 16px;
+    font: inherit;
+    font-weight: normal;
+    text-align: left;
+    color: white;
+    background: transparent;
+    border-radius: 0;
+}
+
+.user-menu-list a:hover,
+.user-menu-list button:hover {
+    background: rgba(0, 255, 255, 0.15);
+    color: var(--cyan);
 }
 
 

@@ -11,28 +11,8 @@
 
   <a href="#main" class="skip-link">Skip to main content</a>
 
-  <header>
-    <nav class="navbar" aria-label="Main">
-      <a href="/" class="logo">
-        <img src="images/example-card.svg" alt="Cohort Friend Finder, go to home page">
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="/" aria-current="page">Home</a></li>
-        <li><a href="/search">Student Search</a></li>
-        <li><a href="/about-us">About Us</a></li>
-        <li><a href="#mission">Mission</a></li>
-      </ul>
-
-      <form class="search-bar" role="search" action="/search" method="get">
-        <label for="student-search" class="visually-hidden">Search students</label>
-        <input type="search" id="student-search" name="q" placeholder="Search students">
-        <button type="submit">Search</button>
-      </form>
-
-      <a href="/login" class="button">Login</a>
-    </nav>
-  </header>
+  {% set nav_active = 'home' %}
+  {% include '_navbar.html' %}
 
   <main id="main" class="flex-container">
     <div class="hero">

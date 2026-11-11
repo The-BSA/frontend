@@ -1,0 +1,36 @@
+{% set signed_in = request.cookies.get('session') %}
+<header class="site-header">
+  <nav class="navbar" id="site-nav" aria-label="Main"
+       data-profiles-url="{{ nav_profiles_url }}">
+    <a href="/" class="logo">
+      <img src="{{ url_for('static', filename='images/example-card.svg') }}" alt="Cohort Friend Finder, go to home page">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/"{% if nav_active == 'home' %} aria-current="page"{% endif %}>Home</a></li>
+      <li><a href="/search"{% if nav_active == 'search' %} aria-current="page"{% endif %}>Student Search</a></li>
+      <li><a href="/about-us"{% if nav_active == 'about' %} aria-current="page"{% endif %}>About Us</a></li>
+      <li><a href="/#mission">Mission</a></li>
+    </ul>
+
+    <form class="search-bar" role="search" action="/search" method="get">
+      <label for="student-search" class="visually-hidden">Search students</label>
+      <input type="search" id="student-search" name="q" placeholder="Search students">
+      <button type="submit">Search</button>
+    </form>
+
+    <a href="/login" class="button" id="nav-login"{% if signed_in %} hidden{% endif %}>Login</a>
+
+    <div class="user-menu" id="nav-user"{% if not signed_in %} hidden{% endif %}>
+      <a href="/profile" class="nav-profile-link" id="nav-profile-link" aria-label="Your profile">
+        <span class="nav-avatar nav-avatar-initials" aria-hidden="true"></span>
+      </a>
+      <ul class="user-menu-list">
+        <li><a href="/profile/edit">Edit profile</a></li>
+        <li><button type="button" id="nav-logout">Log out</button></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<script src="{{ url_for('static', filename='js/session.js') }}" data-auth-url="{{ nav_auth_url }}"></script>
+<script src="{{ url_for('static', filename='js/nav.js') }}"></script>

@@ -123,6 +123,11 @@
         })
         .catch(function (error) {
             if (error.notFound) {
+                // someone who just signed up has no profile yet: send them to create it
+                if (window.CFF && String(window.CFF.userId()) === String(userId)) {
+                    window.location.replace('/profile/edit');
+                    return;
+                }
                 document.title = 'Profile not found | Cohort Friend Finder';
                 showStatus('We couldn’t find that profile.');
                 return;

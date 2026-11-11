@@ -1,5 +1,3 @@
-var loginUrl = "http://127.0.0.1:5000/login"
-
 function login() {
     var options = {
         method: 'POST',
@@ -11,7 +9,7 @@ function login() {
             password: document.getElementById('password').value
         })
     };
-    fetch(loginUrl, options)
+    fetch(CFF.authUrl + '/login', options)
     .then(response => {
         if (!response.ok) {
         throw new Error('Network response was not ok ' + response.status);
@@ -19,7 +17,8 @@ function login() {
         return response.json();
     })
     .then(data => {
-        document.cookie = "session=" + data.access_token + ";";
+        CFF.setSession(data);
+        window.location.href = '/';
     })
     .catch(error => console.error('Fetch error:', error));
 }

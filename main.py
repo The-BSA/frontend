@@ -6,6 +6,15 @@ app = Flask(__name__)
 
 SEARCH_SERVICE_URL = os.getenv("SEARCH_SERVICE_URL", "http://localhost:5006")
 PROFILES_SERVICE_URL = os.getenv("PROFILES_SERVICE_URL", "http://localhost:5005")
+AUTH_SERVICE_URL = os.getenv("AUTH_SERVICE_URL", "http://127.0.0.1:5000")
+
+@app.context_processor
+def inject_service_urls():
+    # the navbar (on every page) needs these to show the profile picture and log out
+    return {
+        "nav_profiles_url": PROFILES_SERVICE_URL,
+        "nav_auth_url": AUTH_SERVICE_URL,
+    }
 
 @app.route("/")
 def index():
@@ -32,6 +41,10 @@ def profile_index():
     # profiles are opened from search results, so send bare /profile there
     return redirect("/search")
 
+@app.route("/profile/edit")
+def profile_edit():
+    return render_template("edit-profile.html", profiles_service_url=PROFILES_SERVICE_URL)
+
 @app.route("/profile/<user_id>")
 def profile(user_id):
     return render_template(
@@ -41,4 +54,4 @@ def profile(user_id):
     )
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80, debug=True)
+    app.run(host="0.0.0.0", port=80, debug=True)

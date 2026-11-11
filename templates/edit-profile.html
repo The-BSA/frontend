@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit profile | Cohort Friend Finder</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/edit-profile.css') }}">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  {% set nav_active = '' %}
+  {% include '_navbar.html' %}
+
+  <main id="main" class="profile" data-api-url="{{ profiles_service_url }}">
+    <form id="profile-form" novalidate>
+
+      <header class="profilehead">
+        <div class="banner"></div>
+        <div id="avatar"></div>
+
+        <div class="edit-avatar-row">
+          <label for="avatar-url" class="visually-hidden">Profile picture link</label>
+          <input type="url" id="avatar-url" maxlength="2048" placeholder="Paste a link to your profile picture (https://…)" autocomplete="off">
+        </div>
+
+        <label for="display-name" class="visually-hidden">Display name</label>
+        <input type="text" id="display-name" class="edit-name" maxlength="160" placeholder="Your name" autocomplete="name">
+
+        <p class="profilemeta edit-meta">
+          <label for="program" class="visually-hidden">Program</label>
+          <input type="text" id="program" maxlength="160" placeholder="Program">
+          <span aria-hidden="true">&middot;</span>
+          <span>Class of</span>
+          <label for="graduation-year" class="visually-hidden">Graduation year</label>
+          <input type="number" id="graduation-year" min="1900" max="2200" placeholder="Year">
+        </p>
+      </header>
+
+      <p id="status" class="status" role="status" aria-live="polite" hidden></p>
+
+      <section class="section" aria-labelledby="bio-title">
+        <h2 id="bio-title">Bio</h2>
+        <label for="public-bio" class="visually-hidden">Public bio</label>
+        <textarea id="public-bio" class="bio edit-bio" rows="5" maxlength="1000" placeholder="Tell other students about yourself…"></textarea>
+        <p class="counter" id="public-bio-count" aria-hidden="true"></p>
+      </section>
+
+      <section class="section" aria-labelledby="org-title">
+        <h2 id="org-title">Organization bio</h2>
+        <p class="hint">Only students who share a verified organization with you can see this, along with your program and graduation year.</p>
+        <label for="org-bio" class="visually-hidden">Organization bio</label>
+        <textarea id="org-bio" class="bio edit-bio" rows="5" maxlength="1000" placeholder="Share more with the students in your organization…"></textarea>
+        <p class="counter" id="org-bio-count" aria-hidden="true"></p>
+      </section>
+
+      <div class="edit-actions">
+        <button type="submit" id="save-button">Save profile</button>
+        <a href="/" id="cancel-link" class="cancel">Cancel</a>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>Cohort Friend Finder</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/edit-profile.js') }}"></script>
+</body>
+</html>

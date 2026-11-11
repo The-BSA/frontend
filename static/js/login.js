@@ -18,6 +18,8 @@ function login() {
         }
         return response.json();
     })
-    .then(data => console.log(data))
+    .then(data => {
+        document.cookie = "session=" + data.access_token + ";";
+    })
     .catch(error => console.error('Fetch error:', error));
 }

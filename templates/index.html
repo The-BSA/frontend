@@ -19,14 +19,14 @@
 
       <ul class="nav-links">
         <li><a href="/" aria-current="page">Home</a></li>
-        <li><a href="/profile">Student Search</a></li>
+        <li><a href="/search">Student Search</a></li>
         <li><a href="/about-us">About Us</a></li>
         <li><a href="#mission">Mission</a></li>
       </ul>
 
-      <form class="search-bar" role="search">
+      <form class="search-bar" role="search" action="/search" method="get">
         <label for="student-search" class="visually-hidden">Search students</label>
-        <input type="search" id="student-search" placeholder="Search students">
+        <input type="search" id="student-search" name="q" placeholder="Search students">
         <button type="submit">Search</button>
       </form>
 

@@ -1,0 +1,229 @@
+/* =====================================================
+   search.css
+   Things only the student search page uses:
+   the search panel, filters, result cards and paging
+   ===================================================== */
+
+.search-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 32px 80px;
+}
+
+.search-intro {
+    margin-bottom: 32px;
+}
+
+.search-intro p {
+    margin: 12px 0 0;
+    max-width: 60ch;
+}
+
+
+/* ---------- Search panel ---------- */
+.search-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.search-row {
+    display: flex;
+}
+
+.search-row input {
+    flex: 1;
+    min-width: 0;
+    min-height: 52px;
+    padding: 0 16px;
+    font-size: 1.125rem;
+    background: white;
+    color: var(--dark);
+    border: none;
+    border-radius: var(--corner) 0 0 var(--corner);
+}
+
+.search-row button {
+    min-height: 52px;
+    border-radius: 0 var(--corner) var(--corner) 0;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+    margin: 0;
+    padding: 12px 16px 16px;
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: var(--corner);
+}
+
+.filters legend {
+    padding: 0 8px;
+    font-weight: bold;
+    color: var(--cyan);
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 180px;
+}
+
+.filter label {
+    font-size: 0.9rem;
+}
+
+.filter select {
+    min-height: 44px;
+    padding: 0 12px;
+    font-size: 1rem;
+    background: white;
+    color: var(--dark);
+    border: none;
+    border-radius: var(--corner);
+}
+
+/* greyed out while logged out */
+.filters:disabled {
+    opacity: 0.5;
+}
+
+.note {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.note a {
+    color: var(--cyan);
+    text-decoration: underline;
+}
+
+button.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid var(--cyan);
+}
+
+button.secondary:hover:not(:disabled) {
+    background: rgba(0, 255, 255, 0.15);
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+
+/* ---------- Status line ---------- */
+.status {
+    min-height: 1.6em;
+    margin: 32px 0 16px;
+}
+
+
+/* ---------- Result cards ---------- */
+.results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.student-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: var(--corner);
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.avatar {
+    flex: none;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatar-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: var(--cyan);
+    color: var(--dark);
+}
+
+.student-card h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    overflow-wrap: anywhere;
+}
+
+.student-card p {
+    margin: 0;
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+}
+
+.student-card .meta {
+    color: var(--cyan);
+    font-size: 0.95rem;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.chips li {
+    padding: 2px 10px;
+    font-size: 0.85rem;
+    background: rgba(75, 117, 255, 0.35);
+    border-radius: 999px;
+}
+
+
+/* ---------- Paging ---------- */
+/* display:flex below would otherwise beat the hidden attribute */
+.pagination[hidden] {
+    display: none;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+
+/* ---------- Phones and small screens ---------- */
+@media (max-width: 800px) {
+    .search-page {
+        padding: 40px 20px 64px;
+    }
+
+    .filter {
+        flex: 1 1 100%;
+    }
+}

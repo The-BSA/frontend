@@ -135,6 +135,7 @@ button:disabled {
 }
 
 .student-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -142,6 +143,23 @@ button:disabled {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(0, 255, 255, 0.25);
     border-radius: var(--corner);
+}
+
+/* the whole card opens the profile: the name link stretches over it */
+.student-card h2 a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--corner);
+}
+
+.student-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--cyan);
+}
+
+.student-card h2 a:hover {
+    color: var(--cyan);
 }
 
 .card-top {

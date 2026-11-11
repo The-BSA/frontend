@@ -245,102 +245,24 @@ footer p {
 
 /* Everything above was from the template */
 
-/* side bar */
+/* Profile page ------------------------------------------------------------------------ */
 
-.sidebar {
-    position: sticky;
-    top: 0;
-    align-self: flex-start;
-    flex: 0 0 400px;
-    height: 100vh;
-    overflow-y: auto;
-    padding: 44px 32px;
-    background: var(--dark);
-    border-right: 3px solid var(--cyan);
-}
-
-.sidebar h2 {
-    margin: 0 0 32px;
-    font-size: 2.6rem;
-    text-align: center;
-}
-
-/* dropdown menus for the cohorts and such */
-
-@media (max-width: 1000px) {
-    .page {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        position: static;
-        align-self: auto;
-        flex: none;
-        height: auto;
-        border-right: none;
-        border-bottom: 3px solid var(--cyan);
-    }
-}
-
-/* keeps sidebar from taking over the entire page */
-
-.page {
-     display: flex; 
-     
-
-}
-
-/* cohorts with cohort names */
-
-.cohort {
-    margin-bottom: 20px;
-    background: var(--blue);
-    border-radius: var(--corner);
-
-}
-
-/* the clickable dropdown button to open the dropdown */
-
-.cohort summary {
-    padding: 22px 24px;
-    font-size: 1.75rem;
-    font-weight: bold;
-    cursor: pointer ;
-}
-
-.cohort ul {
-    margin: 0;
-    padding: 0 16px 16px;
-    list-style: none;
-}
-
-.cohort a {
-    display: block;
-    padding: 15px 18px;
-    color: var(--white);
-    font-size: 1.4rem;
-    text-decoration: none;
-    border-radius: var(--corner);
-    font-weight: bold;
-}
-
-.cohort a:hover {
-    background-color: var(--dark);
-}
-
-/* Profile stuff ------------------------------------------------------------------------ */
-
-.banner {
-    align-items: center;
-    background-color: #234466;    
-    height: 240px; 
-    border-bottom: 3px solid var(--cyan);
+/* sections start hidden and profile.js reveals them, so the rules below that
+   set display must not beat the hidden attribute */
+[hidden] {
+    display: none !important;
 }
 
 .profile {
-    flex: 1;
-    min-width: 0;
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 0;
+}
+
+.banner {
+    background-color: var(--blue);
+    height: 240px;
+    border-bottom: 3px solid var(--cyan);
 }
 
 .profilehead {
@@ -349,14 +271,7 @@ footer p {
     text-align: center;
 }
 
-
-/* made to stop the h2 divider from affecting some of the elemtns */
-
-.destroybar::after {
-    display:none;
-}
-
-/* the source for the image is in the HTML */
+/* the source for the image is set by profile.js */
 
 .pfp {
     display: block;
@@ -366,27 +281,38 @@ footer p {
     margin: -120px auto 0;
     border: 6px solid var(--cyan);
     border-radius: 50%;
-    object-fit:cover ;
+    object-fit: cover;
 }
 
-.profilecohort {
-    font-style: italic;
-    display: block;
-    margin-top: -8px;
-    color: #6788AA;
-    font-size: 1.4rem;
+/* initials shown when there is no usable picture */
+.pfp-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-size: 6rem;
+    font-weight: bold;
+    background-color: var(--cyan);
+    color: var(--dark);
 }
 
 .name {
     padding-top: 20px;
     padding-bottom: 8px;
+    overflow-wrap: anywhere;
 }
 
-.statement {
-    margin: -20px auto 0;
-    font-size: 1.75rem;
-    padding-bottom: 30px;
-    border-bottom: 3px solid var(--blue);
+/* program and graduation year */
+.profilemeta {
+    margin: 0;
+    color: #6788AA;
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+.status {
+    margin: 32px 0;
+    text-align: center;
 }
 
 /* section blocks */
@@ -394,79 +320,51 @@ footer p {
 .section {
     display: block;
     background-color: var(--dark);
-    padding: 40px 64px;
+    padding: 40px 64px 50px;
     border-top: 2px solid var(--blue);
-    margin-top: -40px;
-    padding-bottom: 50px;
 }
-
-/* bio*/
 
 .bio {
-    background-color: #234466;  
+    margin: 24px 0 0;
     padding: 10px;
+    background-color: var(--blue);
     font-size: 1.3rem;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
 }
 
-/*interests*/
-
-.interests {
-    list-style: none;
-    display:flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin: 0;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 0;
-    padding-right: 30px;
+.note {
+    margin: 32px 64px 0;
+    font-size: 0.95rem;
 }
 
-.interests li {
-    border: 2px solid #00FFFF;
-    background-color: #234466;
-    padding: 10px 20px;
-    border-radius: 999px;
-    font-size: 1.4rem;
-
+.back {
+    margin: 40px 64px 0;
 }
 
-/* projects */
-
-.projectbox {
-    background-color: #234466;
-    padding: 40px;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+.back a {
+    color: var(--cyan);
+    text-decoration: underline;
 }
 
-.projectbox h1 {
-    font-size: 2.3rem;
-    margin: 0 0 12px;
-}
+@media (max-width: 800px) {
+    .section {
+        padding: 32px 20px 40px;
+    }
 
-.projectinfo {
-    width: 100%;
-}
+    .note,
+    .back {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 
+    .pfp {
+        width: 160px;
+        height: 160px;
+        margin-top: -80px;
+    }
 
-/* buttons for the links */
-
-.links {
-    list-style: none;
-    display: flex;
-    padding: 0;
-
-}
-
-.links, .button {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    border-radius: 0px;
-    justify-content: center;
-    margin: 0;
+    .pfp-initials {
+        font-size: 4rem;
+    }
 }

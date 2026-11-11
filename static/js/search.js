@@ -71,7 +71,6 @@
         filtersBox.disabled = !loggedIn;
     }
 
-    // ----- rendering -----
     function initials(name) {
         // first letter of up to two words, ignoring digits and symbols
         var letters = name.split(/\s+/).map(function (word) {
@@ -117,7 +116,13 @@
         var top = document.createElement('div');
         top.className = 'card-top';
         top.appendChild(makeAvatar(profile));
-        addText(top, 'h2', '', profile.display_name);
+        var heading = document.createElement('h2');
+        var link = document.createElement('a');
+        // the link's ::after covers the whole card, so the card is one click target
+        link.href = '/profile/' + encodeURIComponent(profile.user_id);
+        link.textContent = profile.display_name;
+        heading.appendChild(link);
+        top.appendChild(heading);
         card.appendChild(top);
 
         var meta = [];

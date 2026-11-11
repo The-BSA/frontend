@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings | Cohort Friend Finder</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/settings.css') }}">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  {% set nav_active = '' %}
+  {% include '_navbar.html' %}
+
+  <main id="main" class="settings-page" data-api-url="{{ organizations_service_url }}">
+    <h1>Settings</h1>
+
+    <section class="settings-section" aria-labelledby="orgs-title">
+      <h2 id="orgs-title">Organization emails</h2>
+      <p class="hint">
+        Add a school email to join that school's organization. We send a verification link to the
+        address, and you become a member once you open it. Students who share a verified
+        organization can see each other's program, graduation year and organization bio.
+      </p>
+
+      <p id="list-status" class="status" role="status" aria-live="polite">Loading your emails…</p>
+      <ul id="membership-list" class="membership-list" hidden></ul>
+
+      <form id="add-email-form" class="add-email" novalidate>
+        <label for="school-email">Add a school email</label>
+        <div class="add-email-row">
+          <input type="email" id="school-email" name="school_email" placeholder="you@school.edu"
+                 maxlength="320" autocomplete="off">
+          <button type="submit" id="add-email-button">Send verification email</button>
+        </div>
+        <p class="hint small">Each school can have one email on your account.</p>
+        <p id="form-status" class="status" role="status" aria-live="polite" hidden></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Cohort Friend Finder</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+/* Settings page and the organization verification page ---------------------------------
+   Builds on main.css (colors, navbar, buttons, footer). */
+
+[hidden] {
+    display: none !important;
+}
+
+.settings-page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 24px 0;
+}
+
+.settings-page > h1 {
+    margin-bottom: 24px;
+}
+
+.settings-section {
+    padding: 32px;
+    background: var(--dark);
+    border: 1px solid var(--blue);
+    border-radius: var(--corner);
+}
+
+/* little colored line under each section heading, like the profile page */
+.settings-section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    margin-top: 16px;
+    background: var(--cyan);
+    border-radius: 2px;
+}
+
+.hint {
+    margin: 16px 0 0;
+    font-size: 0.95rem;
+    color: #9bb7d4;
+}
+
+.hint.small {
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+.status {
+    margin: 24px 0 0;
+}
+
+.status.error,
+.membership-note.error {
+    color: #ffb4b4;
+}
+
+
+/* ---------- The emails already added ---------- */
+.membership-list {
+    display: grid;
+    gap: 12px;
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.membership {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+    padding: 16px;
+    background: var(--blue);
+    border-radius: var(--corner);
+}
+
+.membership-info {
+    flex: 1 1 240px;
+    min-width: 0;
+}
+
+.membership-email,
+.membership-org {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.membership-email {
+    font-weight: bold;
+}
+
+.membership-org {
+    font-size: 0.95rem;
+    color: #9bb7d4;
+}
+
+.membership-note {
+    flex-basis: 100%;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* the words carry the meaning, the colors just back them up */
+.badge {
+    padding: 4px 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 999px;
+}
+
+.badge-verified {
+    background: var(--cyan);
+    color: var(--dark);
+}
+
+.badge-pending {
+    color: #ffd479;
+    border: 2px solid #ffd479;
+}
+
+button.secondary {
+    min-height: 40px;
+    background: transparent;
+    color: var(--cyan);
+    border: 2px solid var(--cyan);
+}
+
+button.secondary:hover {
+    background: rgba(0, 255, 255, 0.15);
+}
+
+button:disabled,
+input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* ---------- Add an email ---------- */
+.add-email {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--blue);
+}
+
+.add-email label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.add-email-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.add-email-row input {
+    box-sizing: border-box;
+    flex: 1 1 260px;
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 1rem;
+    color: var(--dark);
+    background: white;
+    border: none;
+    border-radius: var(--corner);
+}
+
+
+/* ---------- Page the verification email opens ---------- */
+.verify-page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 64px 24px 0;
+}
+
+.verify-card {
+    padding: 40px 32px;
+    text-align: center;
+    background: var(--dark);
+    border: 1px solid var(--blue);
+    border-radius: var(--corner);
+}
+
+.verify-card h1 {
+    font-size: 2.25rem;
+}
+
+.verify-card p {
+    margin: 16px 0 0;
+}
+
+.verify-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px 24px;
+}
+
+.verify-actions a:not(.button) {
+    color: var(--cyan);
+    text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+    .settings-page {
+        padding: 24px 16px 0;
+    }
+
+    .settings-section {
+        padding: 24px 16px;
+    }
+}

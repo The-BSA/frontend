@@ -7,6 +7,7 @@ app = Flask(__name__)
 SEARCH_SERVICE_URL = os.getenv("SEARCH_SERVICE_URL", "http://localhost:5006")
 PROFILES_SERVICE_URL = os.getenv("PROFILES_SERVICE_URL", "http://localhost:5005")
 AUTH_SERVICE_URL = os.getenv("AUTH_SERVICE_URL", "http://127.0.0.1:5000")
+ORGANIZATIONS_SERVICE_URL = os.getenv("ORGANIZATIONS_SERVICE_URL", "http://localhost:5004")
 
 @app.context_processor
 def inject_service_urls():
@@ -51,6 +52,18 @@ def profile(user_id):
         "profile.html",
         profiles_service_url=PROFILES_SERVICE_URL,
         user_id=user_id,
+    )
+
+@app.route("/settings")
+def settings():
+    return render_template("settings.html", organizations_service_url=ORGANIZATIONS_SERVICE_URL)
+
+@app.route("/verify-organization/<token>")
+def verify_organization(token):
+    return render_template(
+        "verify-organization.html",
+        organizations_service_url=ORGANIZATIONS_SERVICE_URL,
+        token=token,
     )
 
 if __name__ == "__main__":

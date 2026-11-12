@@ -43,6 +43,7 @@ img {
     height: 300px;
     object-fit: cover;
     border-radius: var(--corner);
+    border: 2px solid var(--cyan);
 }
 
 /* ---------- Sections (text / image, image / text, text / image) ---------- */

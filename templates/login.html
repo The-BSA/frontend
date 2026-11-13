@@ -9,7 +9,6 @@
 </head>
 <body>
   <script src="{{ url_for('static', filename='js/session.js') }}" data-auth-url="{{ nav_auth_url }}"></script>
-  <script src="../static/js/login.js"></script>
 
   <a href="#main" class="skip-link">Skip to main content</a>
 
@@ -44,7 +43,9 @@
                     <input type="password" id="password" placeholder="••••••••" required>
                 </div>
 
-                <button type="button" class="submit-btn" onclick="login()">Log In</button>
+                <div id="error-message"></div>
+
+                <button type="button" class="submit-btn">Log In</button>
             </form>
 
             <p class="auth-switch">Don't have an account? <a href="signup">Sign Up</a></p>
@@ -56,5 +57,6 @@
     <p>Cohort Friend Finder</p>
   </footer>
 
+  <script src="../static/js/login.js"></script>
 </body>
 </html>

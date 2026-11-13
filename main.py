@@ -65,6 +65,3 @@ def verify_organization(token):
         organizations_service_url=ORGANIZATIONS_SERVICE_URL,
         token=token,
     )
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80, debug=True)

@@ -118,6 +118,12 @@ figcaption {
   border-color: #0606ae;
 }
 
+#error-message {
+  color: #ff4d4f;
+  font-size: 14px;
+  min-height: 20px;
+}
+
 /* Action Button */
 .submit-btn {
   background-color: var(--dark);

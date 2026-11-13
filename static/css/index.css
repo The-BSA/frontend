@@ -54,6 +54,7 @@ img {
     align-items: center;
     justify-content: space-between;
     gap: 64px;
+    
 }
 
 .top-group h2,
@@ -61,6 +62,15 @@ img {
 .bottom-group h2 {
     flex: 1;
     max-width: 30ch;
+}
+
+.image-container {
+    display: grid;
+    text-align: center;
+}
+figcaption {
+    font-size: 15px;
+    color: gray;
 }
 
 /* little colored line under every h2 */

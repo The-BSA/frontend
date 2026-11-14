@@ -160,3 +160,32 @@ figcaption {
 .auth-switch a:hover {
   color: #ffffff;
 }
+
+/* =====================================================
+   Mobile Responsive Adaptations (Added)
+   ===================================================== */
+@media (max-width: 768px) {
+  .auth-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    min-height: auto;
+    flex-direction: column;
+  }
+  
+  .auth-left {
+    display: none; /* Hides branding/image on mobile screens to focus purely on the form */
+  }
+
+  .auth-right {
+    padding: 24px 20px;
+    width: 100%;
+    border-radius: var(--corner);
+    border: 1px solid #000000;
+    overflow: hidden; /* Ensures child backgrounds don't clip the corners */
+  }
+
+  .form-group input {
+    font-size: 16px !important; /* Prevents mobile browser auto-zooming */
+  }
+}
